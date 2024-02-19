@@ -11,7 +11,6 @@ export const LoginButton = () => {
 
   return (
     <Button
-      variant="outline"
       size="sm"
       onClick={() => mutation.mutate()}
       disabled={mutation.isPending}
