@@ -14,15 +14,14 @@ export const LogoutButton = (props: ButtonProps) => {
   return (
     <Button
       variant="destructive"
-      size="sm"
       onClick={() => mutation.mutate()}
       disabled={mutation.isPending}
       {...props}
     >
       {mutation.isPending ? (
-        <Loader size={12} className="mr-2" />
+        <Loader size={14} className="mr-2" />
       ) : (
-        <LogOut size={12} className="mr-2" />
+        <LogOut size={14} className="mr-2" />
       )}
       Déconnexion
     </Button>

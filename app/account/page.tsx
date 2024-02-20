@@ -12,9 +12,7 @@ import { LogoutButton } from "@/features/auth/LogoutButton";
 import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 
-type pageProps = {};
-
-const page = async (props: pageProps) => {
+const page = async () => {
   const session = await getAuthSession();
   const user = session?.user;
 
