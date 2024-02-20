@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,8 +21,7 @@ model Account {
   scope                 String?
   id_token              String?
   session_state         String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -35,8 +31,8 @@ model Session {
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt    DateTime @default(now()) @map("created_at")
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
 }
@@ -59,46 +55,35 @@ model User {
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
   accounts      Account[]
-  sessions      Session[]
-  UserCourse    UserCourse[]
   Course        Course[]
+  UserCourse    UserCourse[]
   UserLesson    UserLesson[]
+  sessions      Session[]
 }
 
 model Course {
   id           String       @id @default(cuid())
   name         String
-  presentation String // markdown
+  presentation String
   image        String
   createdAt    DateTime     @default(now())
   creatorId    String       @map("creator_id")
   state        CourseState  @default(DRAFT)
   creator      User         @relation(fields: [creatorId], references: [id], onDelete: Cascade)
-  userCourse   UserCourse[]
   Lesson       Lesson[]
-}
-
-enum CourseState {
-  DRAFT
-  PUBLISHED
+  userCourse   UserCourse[]
 }
 
 model Lesson {
   id         String       @id @default(cuid())
   name       String
-  rank       String // A string that represents the order of the lesson
-  content    String // markdown
+  rank       String
+  content    String
   state      LessonState  @default(HIDDEN)
   createdAt  DateTime     @default(now())
   courseId   String       @map("course_id")
   course     Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
   UserLesson UserLesson[]
-}
-
-enum LessonState {
-  HIDDEN
-  PUBLISHED
-  PUBLIC
 }
 
 model UserLesson {
@@ -107,16 +92,10 @@ model UserLesson {
   lessonId  String   @map("lesson_id")
   createdAt DateTime @default(now())
   progress  Progress @default(NOT_STARTED)
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, lessonId])
-}
-
-enum Progress {
-  NOT_STARTED
-  IN_PROGRESS
-  COMPLETED
 }
 
 model UserCourse {
@@ -124,8 +103,25 @@ model UserCourse {
   userId    String   @map("user_id")
   courseId  String   @map("course_id")
   createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, courseId])
+}
+
+enum CourseState {
+  DRAFT
+  PUBLISHED
+}
+
+enum LessonState {
+  HIDDEN
+  PUBLISHED
+  PUBLIC
+}
+
+enum Progress {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
 }

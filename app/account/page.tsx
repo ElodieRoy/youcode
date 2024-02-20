@@ -39,9 +39,9 @@ const page = async () => {
         </Link>
         <Link
           className={buttonVariants({ variant: "outline", size: "lg" })}
-          href="/admin"
+          href="/courses"
         >
-          Admin
+          Gestion des cours
         </Link>
       </CardContent>
       <CardFooter className="flex justify-end">
