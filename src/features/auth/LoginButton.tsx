@@ -10,15 +10,11 @@ export const LoginButton = () => {
   const mutation = useMutation({ mutationFn: async () => signIn() });
 
   return (
-    <Button
-      size="sm"
-      onClick={() => mutation.mutate()}
-      disabled={mutation.isPending}
-    >
+    <Button onClick={() => mutation.mutate()} disabled={mutation.isPending}>
       {mutation.isPending ? (
-        <Loader size={12} className="mr-2" />
+        <Loader size={14} className="mr-2" />
       ) : (
-        <LogIn size={12} className="mr-2" />
+        <LogIn size={14} className="mr-2" />
       )}
       Connexion
     </Button>

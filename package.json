@@ -10,7 +10,7 @@
     "predev": "prisma generate && prisma migrate deploy",
     "setup": "prisma generate && prisma migrate deploy",
     "prisma": "prisma",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",

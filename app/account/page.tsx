@@ -12,9 +12,7 @@ import { LogoutButton } from "@/features/auth/LogoutButton";
 import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 
-type pageProps = {};
-
-const page = async (props: pageProps) => {
+const page = async () => {
   const session = await getAuthSession();
   const user = session?.user;
 
@@ -41,9 +39,9 @@ const page = async (props: pageProps) => {
         </Link>
         <Link
           className={buttonVariants({ variant: "outline", size: "lg" })}
-          href="/admin"
+          href="/courses"
         >
-          Admin
+          Gestion des cours
         </Link>
       </CardContent>
       <CardFooter className="flex justify-end">
