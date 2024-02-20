@@ -4,6 +4,7 @@ import { LoginButton } from "./LoginButton";
 
 export const AuthButton = async () => {
   const session = await getAuthSession();
+
   const user = session?.user;
 
   if (!user) {
