@@ -49,6 +49,48 @@ const main = async () => {
     })
   );
 
+  await prisma.course.create({
+    data: {
+      name: "Next.js",
+      createdAt: faker.date.past(),
+      presentation: faker.lorem.paragraph(),
+      image:
+        "https://blogger.googleusercontent.com/img/a/AVvXsEjO0pinCN8SoAcCG9aD6yt4u1Q3hfqx5x-92ANuKkZycLoLP157vS8sNiLJkB4-f2vohOP8vp9Z8ZkG2cAOcrvFzoWvy1rdxXr2zw7Cur1QgFiLboIZAaehcWgex3oUm2veYeP_WGKnrPxGhw-JunK_jFcsV7KiWMhBxC96LK17RgBBOALWu2EDBYKk",
+      creatorId: "usertest",
+      lessons: {
+        createMany: {
+          data: [
+            {
+              name: "Introduction",
+              content: faker.lorem.paragraph(),
+              rank: "1",
+            },
+            {
+              name: "Les bases",
+              content: faker.lorem.paragraph(),
+              rank: "2",
+            },
+            {
+              name: "Les serveurs component",
+              content: faker.lorem.paragraph(),
+              rank: "3",
+            },
+            {
+              name: "Les clients component",
+              content: faker.lorem.paragraph(),
+              rank: "4",
+            },
+            {
+              name: "Le routing",
+              content: faker.lorem.paragraph(),
+              rank: "4",
+            },
+          ],
+        },
+      },
+    },
+  });
+
   for (let i = 0; i < 100; i++) {
     users.push(
       await prisma.user.create({

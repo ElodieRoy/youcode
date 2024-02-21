@@ -18,7 +18,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, User2 } from "lucide-react";
+import { AlbumIcon, LogOut, User2 } from "lucide-react";
 import { Session } from "next-auth";
 import Link from "next/link";
 import { LogoutButton } from "./LogoutButton";
@@ -47,6 +47,12 @@ export const LoggedInButton = ({ user }: LoggedInButtonProps) => {
             <Link href="/account">
               <User2 className="mr-2" size={12} />
               Mon compte
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/my-courses">
+              <AlbumIcon className="mr-2" size={12} />
+              Mes cours
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />

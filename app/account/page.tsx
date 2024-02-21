@@ -37,12 +37,6 @@ const page = async () => {
         >
           Paramètre du compte
         </Link>
-        <Link
-          className={buttonVariants({ variant: "outline", size: "lg" })}
-          href="/courses"
-        >
-          Gestion des cours
-        </Link>
       </CardContent>
       <CardFooter className="flex justify-end">
         <LogoutButton />

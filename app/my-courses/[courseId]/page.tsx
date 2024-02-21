@@ -73,7 +73,7 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
         </CardContent>
         <CardFooter className="flex flex-col justify-center gap-4 md:flex-row lg:flex-col">
           <Link
-            href={`/admin/courses/${course.id}/edit`}
+            href={`/my-courses/${course.id}/edit`}
             className={cn(
               buttonVariants({
                 variant: "outline",
@@ -84,7 +84,7 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
             Modifier
           </Link>
           <Link
-            href={`/admin/courses/${course.id}/edit`}
+            href={`/my-courses/${course.id}/edit`}
             className={cn(
               buttonVariants({
                 variant: "outline",
@@ -141,7 +141,7 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
           <PaginationButtons
             page={page}
             totalPage={Math.ceil((course._count?.users ?? 1) / elementByPage)}
-            baseUrl={`/courses/${course.id}`}
+            baseUrl={`/my-courses/${course.id}`}
           />
         </CardFooter>
       </Card>
