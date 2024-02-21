@@ -47,18 +47,19 @@ model VerificationToken {
 }
 
 model User {
-  id            String       @id @default(cuid())
-  name          String?
-  email         String?      @unique
-  emailVerified DateTime?
-  image         String?
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
-  accounts      Account[]
-  Course        Course[]
-  UserCourse    UserCourse[]
-  UserLesson    UserLesson[]
-  sessions      Session[]
+  id             String       @id @default(cuid())
+  name           String?
+  email          String?      @unique
+  emailVerified  DateTime?
+  image          String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  canceledAt     DateTime?
+  accounts       Account[]
+  createdCourses Course[]
+  userCourses    UserCourse[]
+  userLessons    UserLesson[]
+  userSessions   Session[]
 }
 
 model Course {
@@ -70,20 +71,20 @@ model Course {
   creatorId    String       @map("creator_id")
   state        CourseState  @default(DRAFT)
   creator      User         @relation(fields: [creatorId], references: [id], onDelete: Cascade)
-  Lesson       Lesson[]
-  userCourse   UserCourse[]
+  lessons      Lesson[]
+  users        UserCourse[]
 }
 
 model Lesson {
-  id         String       @id @default(cuid())
-  name       String
-  rank       String
-  content    String
-  state      LessonState  @default(HIDDEN)
-  createdAt  DateTime     @default(now())
-  courseId   String       @map("course_id")
-  course     Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  UserLesson UserLesson[]
+  id        String       @id @default(cuid())
+  name      String
+  rank      String
+  content   String
+  state     LessonState  @default(HIDDEN)
+  createdAt DateTime     @default(now())
+  courseId  String       @map("course_id")
+  course    Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  users     UserLesson[]
 }
 
 model UserLesson {
