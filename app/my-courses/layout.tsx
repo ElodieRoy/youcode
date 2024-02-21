@@ -1,9 +1,4 @@
-import {
-  Layout,
-  LayoutContent,
-  LayoutHeader,
-  LayoutTitle,
-} from "@/components/layout/layout";
+import { Layout, LayoutHeader, LayoutTitle } from "@/components/layout/layout";
 import { PropsWithChildren } from "react";
 
 export default function CourseLayout({ children }: PropsWithChildren) {
@@ -12,7 +7,7 @@ export default function CourseLayout({ children }: PropsWithChildren) {
       <LayoutHeader>
         <LayoutTitle>Cours</LayoutTitle>
       </LayoutHeader>
-      <LayoutContent>{children}</LayoutContent>
+      {children}
     </Layout>
   );
 }
