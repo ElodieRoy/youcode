@@ -54,8 +54,7 @@ const main = async () => {
       name: "Next.js",
       createdAt: faker.date.past(),
       presentation: faker.lorem.paragraph(),
-      image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEjO0pinCN8SoAcCG9aD6yt4u1Q3hfqx5x-92ANuKkZycLoLP157vS8sNiLJkB4-f2vohOP8vp9Z8ZkG2cAOcrvFzoWvy1rdxXr2zw7Cur1QgFiLboIZAaehcWgex3oUm2veYeP_WGKnrPxGhw-JunK_jFcsV7KiWMhBxC96LK17RgBBOALWu2EDBYKk",
+      image: "https://devfool.eu/wp-content/uploads/2021/12/next_js_logo.jpg",
       creatorId: "usertest",
       lessons: {
         createMany: {

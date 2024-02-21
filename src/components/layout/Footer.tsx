@@ -19,7 +19,15 @@ export const Footer = () => {
               {SiteConfig.title}
             </Typography>
           </div>
-          <div className="flex flex-col items-end gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center justify-center">
+            <Typography
+              variant="base"
+              className="text-xs text-muted-foreground"
+            >
+              &copy; {new Date().getFullYear()} YouCode
+            </Typography>
+          </div>
+          {/* <div className="flex flex-col items-end gap-2 text-sm text-muted-foreground">
             <Link className="hover:underline" href="/legal/privacy">
               Privacy
             </Link>
@@ -32,12 +40,7 @@ export const Footer = () => {
             <Link className="hover:underline" href="/admin">
               Admin
             </Link>
-          </div>
-        </div>
-        <div className="flex w-full items-center justify-center">
-          <Typography variant="base" className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} YouCode
-          </Typography>
+          </div> */}
         </div>
       </div>
     </footer>

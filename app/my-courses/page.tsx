@@ -1,14 +1,6 @@
 import { LayoutContent } from "@/components/layout/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { Typography } from "@/components/ui/typography";
 import { getConnectedUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
@@ -25,9 +17,24 @@ export default async function Courses() {
 
   return (
     <LayoutContent>
-      <Card>
-        <CardContent className="mt-4">
-          <Table>
+      {courses.map((course) => (
+        <Card className="mt-4" key={course.id}>
+          <Link href={`/my-courses/${course.id}`}>
+            <CardContent className="flex justify-center item-center p-6">
+              <Avatar className="rounded mr-4">
+                <AvatarFallback>{course.name[0]}</AvatarFallback>
+                {course.image && (
+                  <AvatarImage src={course.image} alt={course.name} />
+                )}
+              </Avatar>
+              <Typography variant="large" className="leading-10">
+                {course.name}
+              </Typography>
+            </CardContent>
+          </Link>
+        </Card>
+      ))}
+      {/* <Table>
             <TableHeader>
               <TableHead>Image</TableHead>
               <TableHead>Nom</TableHead>
@@ -43,21 +50,15 @@ export default async function Courses() {
                       )}
                     </Avatar>
                   </TableCell>
-                  <TableCell>
-                    <Typography
-                      as={Link}
-                      variant="large"
-                      href={`/my-courses/${course.id}`}
-                    >
-                      {course.name}
-                    </Typography>
-                  </TableCell>
+                  <Link href={`/my-courses/${course.id}`}>
+                    <TableCell>
+                      <Typography variant="large">{course.name}</Typography>
+                    </TableCell>
+                  </Link>
                 </TableRow>
               ))}
             </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+          </Table> */}
     </LayoutContent>
   );
 }

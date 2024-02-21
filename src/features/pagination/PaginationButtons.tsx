@@ -24,8 +24,6 @@ const PaginationButtons = ({
   const changeUrlPage = (page: string) => {
     const searchParams = new URLSearchParams({ page: page });
     const url = `${baseUrl}?${searchParams.toString()}`;
-    console.log("🌸 ", url);
-
     router.push(url);
   };
 
