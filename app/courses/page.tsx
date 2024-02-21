@@ -1,3 +1,4 @@
+import { LayoutContent } from "@/components/layout/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -23,38 +24,40 @@ export default async function Courses() {
   });
 
   return (
-    <Card>
-      <CardContent className="mt-4">
-        <Table>
-          <TableHeader>
-            <TableHead>Image</TableHead>
-            <TableHead>Nom</TableHead>
-          </TableHeader>
-          <TableBody>
-            {courses.map((course) => (
-              <TableRow key={course.id}>
-                <TableCell>
-                  <Avatar className="rounded">
-                    <AvatarFallback>{course.name[0]}</AvatarFallback>
-                    {course.image && (
-                      <AvatarImage src={course.image} alt={course.name} />
-                    )}
-                  </Avatar>
-                </TableCell>
-                <TableCell>
-                  <Typography
-                    as={Link}
-                    variant="large"
-                    href={`/admin/courses/${course.id}`}
-                  >
-                    {course.name}
-                  </Typography>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
+    <LayoutContent>
+      <Card>
+        <CardContent className="mt-4">
+          <Table>
+            <TableHeader>
+              <TableHead>Image</TableHead>
+              <TableHead>Nom</TableHead>
+            </TableHeader>
+            <TableBody>
+              {courses.map((course) => (
+                <TableRow key={course.id}>
+                  <TableCell>
+                    <Avatar className="rounded">
+                      <AvatarFallback>{course.name[0]}</AvatarFallback>
+                      {course.image && (
+                        <AvatarImage src={course.image} alt={course.name} />
+                      )}
+                    </Avatar>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      as={Link}
+                      variant="large"
+                      href={`/courses/${course.id}`}
+                    >
+                      {course.name}
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+    </LayoutContent>
   );
 }
