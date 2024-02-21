@@ -3,12 +3,14 @@ import { prisma } from "@/lib/prisma";
 type GetCourse = {
   courseId: string;
   creatorId: string;
+  elementByPage: number;
   userPage: number;
 };
 
 export const getCourse = async ({
   courseId,
   creatorId,
+  elementByPage,
   userPage,
 }: GetCourse) => {
   const course = await prisma.course.findUnique({
@@ -19,8 +21,8 @@ export const getCourse = async ({
       name: true,
       presentation: true,
       users: {
-        take: 5,
-        skip: Math.max(0, userPage * 5),
+        take: elementByPage,
+        skip: Math.max(0, (userPage - 1) * elementByPage),
         select: {
           user: {
             select: { id: true, name: true, image: true, canceledAt: true },
