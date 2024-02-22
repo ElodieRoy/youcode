@@ -1,5 +1,6 @@
 import { LayoutContent } from "@/components/layout/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -128,9 +129,15 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    <Typography>
-                      {user.canceled ? "Inactif" : "Actif"}
-                    </Typography>
+                    {user.canceled ? (
+                      <Badge className="ml-auto bg-warning text-warning-foreground hover:bg-warning/50">
+                        Inactif
+                      </Badge>
+                    ) : (
+                      <Badge className="ml-auto bg-success text-success-foreground hover:bg-success/50">
+                        Actif
+                      </Badge>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}

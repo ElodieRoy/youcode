@@ -34,31 +34,6 @@ export default async function Courses() {
           </Link>
         </Card>
       ))}
-      {/* <Table>
-            <TableHeader>
-              <TableHead>Image</TableHead>
-              <TableHead>Nom</TableHead>
-            </TableHeader>
-            <TableBody>
-              {courses.map((course) => (
-                <TableRow key={course.id}>
-                  <TableCell>
-                    <Avatar className="rounded">
-                      <AvatarFallback>{course.name[0]}</AvatarFallback>
-                      {course.image && (
-                        <AvatarImage src={course.image} alt={course.name} />
-                      )}
-                    </Avatar>
-                  </TableCell>
-                  <Link href={`/my-courses/${course.id}`}>
-                    <TableCell>
-                      <Typography variant="large">{course.name}</Typography>
-                    </TableCell>
-                  </Link>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table> */}
     </LayoutContent>
   );
 }

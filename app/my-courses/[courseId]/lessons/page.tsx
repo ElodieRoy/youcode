@@ -1,9 +1,4 @@
-import {
-  Layout,
-  LayoutContent,
-  LayoutHeader,
-  LayoutTitle,
-} from "@/components/layout/layout";
+import { Layout, LayoutContent } from "@/components/layout/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getConnectedUser } from "@/lib/auth";
 import { notFound } from "next/navigation";
@@ -26,13 +21,10 @@ const CourseLesson = async ({ params }: CourseLessonProps) => {
   }
   return (
     <Layout>
-      <LayoutHeader>
-        <LayoutTitle>Lessons · {course.name}</LayoutTitle>
-      </LayoutHeader>
       <LayoutContent className="flex flex-col gap-4 lg:flex-row">
         <Card className="flex-[2]">
           <CardHeader>
-            <CardTitle>Lessons</CardTitle>
+            <CardTitle>Leçons · {course.name}</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
             {course.lessons.map((lesson) => (
