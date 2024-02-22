@@ -1,6 +1,6 @@
+import { Badge } from "@/components/ui/badge";
 import { Typography } from "@/components/ui/typography";
 import { Lesson } from "@prisma/client";
-import { Badge } from "lucide-react";
 
 type LessonItemProps = {
   lesson: Lesson;
