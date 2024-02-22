@@ -84,7 +84,7 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
             Modifier
           </Link>
           <Link
-            href={`/my-courses/${course.id}/edit`}
+            href={`/my-courses/${course.id}/lessons`}
             className={cn(
               buttonVariants({
                 variant: "outline",
