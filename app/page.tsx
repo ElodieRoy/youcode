@@ -6,7 +6,7 @@ export default async function Home() {
   const allCourses = await getCourses();
 
   return (
-    <main className="flex flex-col items-center justify-between px-24 py-10">
+    <main className="flex flex-col items-center justify-between xs:px-2 sm:px-24 xs:py-2 sm:py-10">
       <Typography variant="h2" className="mb-4">
         Tous les cours
       </Typography>
