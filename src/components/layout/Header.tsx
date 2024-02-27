@@ -4,6 +4,7 @@ import { AuthButton } from "@/features/auth/AuthButton";
 import { SiteConfig } from "@/lib/site-config";
 import Image from "next/image";
 import Link from "next/link";
+import NavBar from "../NavBar";
 
 export function Header() {
   return (
@@ -14,6 +15,7 @@ export function Header() {
           <Typography variant="h3" as={Link} href="/">
             {SiteConfig.title}
           </Typography>
+          <NavBar className="ml-10" />
         </div>
 
         <div className="flex flex-1 items-center justify-end space-x-4">
