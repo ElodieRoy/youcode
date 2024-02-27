@@ -9,7 +9,7 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 const menuLinks = [
   {
     name: "Explorer",
-    href: "/explore",
+    href: "/",
   },
   {
     name: "Cours",
@@ -30,7 +30,7 @@ const NavBar = ({ className }: HTMLAttributes<HTMLDivElement>) => {
               key={menu.href}
               className={cn(
                 "flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary",
-                pathname?.startsWith(menu.href) ||
+                (pathname?.startsWith(menu.href) && menu.href !== "/") ||
                   (index === 0 && pathname === "/")
                   ? "bg-muted font-medium text-primary"
                   : "text-muted-foreground"
