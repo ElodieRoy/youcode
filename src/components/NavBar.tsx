@@ -9,11 +9,11 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 const menuLinks = [
   {
     name: "Explorer",
-    href: "/explorer",
+    href: "/explore",
   },
   {
     name: "Cours",
-    href: "/cours",
+    href: "/courses",
   },
 ];
 

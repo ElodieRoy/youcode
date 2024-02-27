@@ -1,18 +1,18 @@
 import { prisma } from "@/lib/prisma";
 
-type GetCourse = {
+type GetAdminCourse = {
   courseId: string;
   creatorId: string;
   elementByPage: number;
   userPage: number;
 };
 
-export const getCourse = async ({
+export const getAdminCourse = async ({
   courseId,
   creatorId,
   elementByPage,
   userPage,
-}: GetCourse) => {
+}: GetAdminCourse) => {
   const course = await prisma.course.findUnique({
     where: { id: courseId, creatorId },
     select: {

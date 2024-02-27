@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils";
 import { PresentationIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import PaginationButtons from "../../../src/features/pagination/PaginationButtons";
-import { getCourse } from "./course.query";
+import { getAdminCourse } from "./course.query";
 
 type CoursePageProps = {
   params: { courseId: string };
@@ -37,7 +37,7 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
   const page = Number(searchParams.page ?? 1);
   const elementByPage = 5;
 
-  const course = await getCourse({
+  const course = await getAdminCourse({
     courseId: params.courseId,
     creatorId: user.id,
     elementByPage: elementByPage,
