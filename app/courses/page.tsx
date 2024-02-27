@@ -16,7 +16,7 @@ export default async function Courses() {
   const courses = await getCourses(user.id);
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 xs:grid-cols-1 md:grid-cols-2">
       {courses.map((course) => (
         <Card className="mt-4" key={course.id}>
           <Link href={`/my-courses/${course.id}`}>

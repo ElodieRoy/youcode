@@ -11,6 +11,11 @@ type CourseLessonProps = {
 
 const CourseLesson = async ({ params }: CourseLessonProps) => {
   const user = await getConnectedUser();
+
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
   const course = await getCourseLessons({
     courseId: params.courseId,
     creatorId: user.id,

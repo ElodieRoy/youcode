@@ -37,6 +37,10 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
   const page = Number(searchParams.page ?? 1);
   const elementByPage = 5;
 
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
   const course = await getAdminCourse({
     courseId: params.courseId,
     creatorId: user.id,

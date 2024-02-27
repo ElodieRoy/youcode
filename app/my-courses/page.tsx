@@ -9,6 +9,10 @@ import Link from "next/link";
 export default async function Courses() {
   const user = await getConnectedUser();
 
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
   const courses = await prisma.course.findMany({
     where: {
       creatorId: user.id,
